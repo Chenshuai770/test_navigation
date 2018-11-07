@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/ll_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,26 +29,22 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/tv_test"
-            android:layout_marginTop="14dp"
+
             android:text="隐藏" />
 
         <Button
             android:id="@+id/btn_test2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/btn_test"
-            android:layout_marginTop="21dp"
-            android:text="隐藏脚包" />
+            android:text="隐藏角标" />
     </LinearLayout>
 
     <FrameLayout
-        android:layout_below="@+id/ll_layout"
         android:id="@+id/fl_layout"
-        android:layout_above="@+id/navigationBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navigationBar"
+        android:layout_below="@+id/ll_layout">
 
     </FrameLayout>
 

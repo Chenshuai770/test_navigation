@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setGravity(Gravity.TOP | Gravity.END)
                 .setHideOnSelect(true);
 
-
         mNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.ic_home_white_24dp, "首页").setBadgeItem(mTextBadgeItem).setActiveColorResource(R.color.bule)//设置选中的颜色
                         .setActiveColorResource(R.color.bule))//设为未选中的颜色)
