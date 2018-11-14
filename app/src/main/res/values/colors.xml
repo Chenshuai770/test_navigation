@@ -3,7 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="bule">#ff4040</color>
+    <color name="red">#ff4040</color>
+    <color name="bule">#70c8f7</color>
     <color name="green">#43ff40</color>
     <color name="yellow">#fff540</color>
+    <color name="black">#0b0203</color>
 </resources>

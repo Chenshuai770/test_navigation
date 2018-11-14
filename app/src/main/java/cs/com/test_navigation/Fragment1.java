@@ -7,6 +7,8 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +30,10 @@ public class Fragment1 extends Fragment {
     private View view;
     private FloatingActionButton fab;
     private AppBarLayout mAppBar;
-    private List<Integer> images=new ArrayList<Integer>();
+    private List<Integer> images = new ArrayList<Integer>();
+    private RecyclerView mRecyclerView;
+    private List<String> mData = new ArrayList<>();
+    private Fragment1Adapter adapter;
 
     @Nullable
     @Override
@@ -36,7 +41,14 @@ public class Fragment1 extends Fragment {
         view = inflater.inflate(R.layout.fragment1, container, false);
 
         initView(view);
+        initData();
         return view;
+    }
+
+    private void initData() {
+        mData.clear();
+        mData.add(getString(R.string.large_text));
+        adapter.notifyDataSetChanged();
     }
 
     private void initView(View view) {
@@ -45,6 +57,13 @@ public class Fragment1 extends Fragment {
         images.add(R.drawable.kkk);
 
         mAppBar = (AppBarLayout) view.findViewById(R.id.app_bar);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rlv_fm1);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new Fragment1Adapter(R.layout.item_f1, mData);
+        mRecyclerView.setAdapter(adapter);
+        View headView = LayoutInflater.from(getActivity()).inflate(R.layout.item_f1_header, null);
+        adapter.addHeaderView(headView);
+
         mAppBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @SuppressLint("RestrictedApi")
             @Override
@@ -67,7 +86,7 @@ public class Fragment1 extends Fragment {
             }
         });
 
-        Banner banner = (Banner)view.findViewById(R.id.banner);
+        Banner banner = (Banner) view.findViewById(R.id.banner);
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
         //设置图片集合
